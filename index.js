@@ -1,12 +1,16 @@
 require("dotenv").config();
 const express = require("express");
 const mongoose = require("mongoose");
+const searchBusinessRouter = require("./routes/searchBusiness");
 
 const app = express();
 const PORT = process.env.PORT || 3000;
 const DB_URL = process.env.DB_URL;
 
 app.use(express.json());
+
+// Routes
+app.use(searchBusinessRouter);
 
 // Connect to MongoDB
 mongoose
