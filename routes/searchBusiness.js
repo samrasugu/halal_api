@@ -13,6 +13,18 @@ searchBusinessRouter.get("/", async (req, res) => {
   }
 });
 
+// retrieve businesses by business name
+searchBusinessRouter.get("/name/:businessName", async (req, res) => {
+  try {
+    const businesses = await Business.find({
+      businessName: { $regex: req.params.businessName, $options: "i" },
+    });
+    res.json(businesses);
+  } catch (error) {
+    res.status(500).json({ message: error.message });
+  }
+});
+
 // retrieve businesses by country
 searchBusinessRouter.get("/country/:country", async (req, res) => {
   try {
