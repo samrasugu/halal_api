@@ -11,6 +11,10 @@ const businessSchema = new mongoose.Schema(
       type: String,
       required: true,
     },
+    imageUrl: {
+      type: String,
+      required: true,
+    },
     type: {
       type: String,
       required: true,
@@ -32,4 +36,4 @@ const businessSchema = new mongoose.Schema(
 );
 
 const Business = mongoose.model("Business", businessSchema);
-module.exports = {Business, businessSchema};
+module.exports = { Business, businessSchema };

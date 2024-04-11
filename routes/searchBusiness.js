@@ -100,10 +100,11 @@ searchBusinessRouter.get(
 );
 
 // add a new business
-searchBusinessRouter.post("/", async (req, res) => {
+searchBusinessRouter.post("/add", async (req, res) => {
   const business = new Business({
     businessName: req.body.businessName,
     businessEmail: req.body.businessEmail,
+    imageUrl: req.body.imageUrl,
     type: req.body.type,
     businessPhone: req.body.businessPhone,
     country: req.body.country,
